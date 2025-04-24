@@ -15,21 +15,28 @@ interface WeatherApi {
 
 class WeatherApiImpl(private val httpClient: HttpClient) : WeatherApi {
     override suspend fun getDailyForecast(): DailyResponse {
-        return httpClient.get {
-            parameter("latitude", 35.68)
-            parameter("longintude", 139.76)
-            parameter("daily", "weathercode,temperature_2m_max,temperature_2m_min")
-            parameter("timezone", "Asia%2FTokyo")
-            parameter("forecast_days", 8)
+        return httpClient.get("v1/forecast") {
+            url {
+                parameter("latitude", 35.68)
+                parameter("longitude", 139.76)
+                encodedParameters.append(
+                    "daily",
+                    "weathercode,temperature_2m_max,temperature_2m_min"
+                )
+                parameter("timezone", "Asia/Tokyo")
+                parameter("forecast_days", 8)
+            }
         }.body()
     }
 
     override suspend fun getHourlyForecast(): HourlyResponse {
-        return httpClient.get {
-            parameter("latitude", 35.68)
-            parameter("longintude", 139.76)
-            parameter("hourly", "temperature_2m,precipitation")
-            parameter("timezone", "Asia%2FTokyo")
+        return httpClient.get("v1/forecast") {
+            url {
+                parameter("latitude", 35.68)
+                parameter("longitude", 139.76)
+                encodedParameters.append("hourly", "temperature_2m,precipitation")
+                parameter("timezone", "Asia/Tokyo")
+            }
         }.body()
     }
 }
