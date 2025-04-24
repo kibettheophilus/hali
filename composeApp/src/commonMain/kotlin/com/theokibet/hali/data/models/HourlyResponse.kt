@@ -17,7 +17,7 @@ data class HourlyResponse(
     @SerialName("timezone_abbreviation")
     val timezoneAbbreviation: String,
     @SerialName("utc_offset_seconds")
-    val utcOffsetSeconds: Int
+    val utcOffsetSeconds: Int,
 )
 
 @Serializable
@@ -25,7 +25,7 @@ data class HourlyUnits(
     val precipitation: String,
     @SerialName("temperature_2m")
     val temperatureM: String,
-    val time: String
+    val time: String,
 )
 
 @Serializable
@@ -33,5 +33,5 @@ data class Hourly(
     val precipitation: List<Double>,
     @SerialName("temperature_2m")
     val temperatureM: List<Double>,
-    val time: List<String>
+    val time: List<String>,
 )

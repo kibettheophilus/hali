@@ -17,7 +17,7 @@ data class DailyResponse(
     @SerialName("timezone_abbreviation")
     val timezoneAbbreviation: String,
     @SerialName("utc_offset_seconds")
-    val utcOffsetSeconds: Int
+    val utcOffsetSeconds: Int,
 )
 
 @Serializable
@@ -28,7 +28,7 @@ data class DailyUnits(
     val temperatureMin: String,
     val time: String,
     @SerialName("weathercode")
-    val weatherCode: String
+    val weatherCode: String,
 )
 
 @Serializable
@@ -39,5 +39,5 @@ data class Daily(
     val temperatureMin: List<Double>,
     val time: List<String>,
     @SerialName("weathercode")
-    val weatherCode: List<Int>
+    val weatherCode: List<Int>,
 )

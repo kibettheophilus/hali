@@ -8,11 +8,11 @@ import com.theokibet.hali.data.repositories.WeatherRepositoryImpl
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-val sharedModule = module {
-    single { createHttpClient(engine = get()) }
-    single<WeatherRepository> { WeatherRepositoryImpl(weatherApi = get()) }
-    single<WeatherApi> { WeatherApiImpl(httpClient = get()) }
-}
+val sharedModule =
+    module {
+        single { createHttpClient(engine = get()) }
+        single<WeatherRepository> { WeatherRepositoryImpl(weatherApi = get()) }
+        single<WeatherApi> { WeatherApiImpl(httpClient = get()) }
+    }
 
 expect fun platformModule(): Module
-
