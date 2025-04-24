@@ -21,7 +21,7 @@ class WeatherApiImpl(private val httpClient: HttpClient) : WeatherApi {
                 parameter("longitude", 139.76)
                 encodedParameters.append(
                     "daily",
-                    "weathercode,temperature_2m_max,temperature_2m_min"
+                    "weathercode,temperature_2m_max,temperature_2m_min",
                 )
                 parameter("timezone", "Asia/Tokyo")
                 parameter("forecast_days", 8)

@@ -13,7 +13,7 @@ fun App() {
     KoinApplication(
         application = {
             modules(sharedModule)
-        }
+        },
     ) {
         MaterialTheme {
             HomeScreen()
