@@ -9,6 +9,7 @@ import io.ktor.client.request.parameter
 
 interface WeatherApi {
     suspend fun getDailyForecast(): DailyResponse
+
     suspend fun getHourlyForecast(): HourlyResponse
 }
 

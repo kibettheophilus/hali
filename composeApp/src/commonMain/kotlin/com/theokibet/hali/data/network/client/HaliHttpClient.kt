@@ -12,21 +12,22 @@ import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-fun createHttpClient(engine: HttpClientEngine) = HttpClient(engine) {
-    install(ContentNegotiation) {
-        json(
-            Json {
-                isLenient = true
-                ignoreUnknownKeys = true
-            }
-        )
-    }
-
-    install(DefaultRequest) {
-        url {
-            host = BASE_URL
-            protocol = URLProtocol.HTTPS
+fun createHttpClient(engine: HttpClientEngine) =
+    HttpClient(engine) {
+        install(ContentNegotiation) {
+            json(
+                Json {
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                },
+            )
         }
-        header(HttpHeaders.ContentType, ContentType.Application.Json)
+
+        install(DefaultRequest) {
+            url {
+                host = BASE_URL
+                protocol = URLProtocol.HTTPS
+            }
+            header(HttpHeaders.ContentType, ContentType.Application.Json)
+        }
     }
-}
