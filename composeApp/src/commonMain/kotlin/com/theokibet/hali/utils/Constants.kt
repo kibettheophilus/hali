@@ -1,3 +1,3 @@
 package com.theokibet.hali.utils
 
-const val BASE_URL = "https://api.open-meteo.com/v1/forecast"
+const val BASE_URL = "api.open-meteo.com"
