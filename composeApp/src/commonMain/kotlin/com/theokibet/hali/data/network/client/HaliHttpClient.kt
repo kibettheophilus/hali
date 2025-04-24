@@ -30,11 +30,12 @@ fun createHttpClient(engine: HttpClientEngine) =
 
         install(Logging) {
             level = LogLevel.HEADERS
-            logger = object : Logger {
-                override fun log(message: String) {
-                    Napier.i(tag = "Http Client", message = message)
+            logger =
+                object : Logger {
+                    override fun log(message: String) {
+                        Napier.i(tag = "Http Client", message = message)
+                    }
                 }
-            }
         }.also {
             Napier.base(DebugAntilog())
         }

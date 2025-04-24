@@ -11,23 +11,24 @@ import androidx.compose.ui.Modifier
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = koinViewModel()) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    homeViewModel: HomeViewModel = koinViewModel(),
+) {
     val state by homeViewModel.homeUiState.collectAsState()
 
     when (state) {
         HomeUiState.Loading -> {
-
         }
 
         HomeUiState.Default -> {
-
         }
 
         is HomeUiState.Error -> {
             Column(
                 modifier = Modifier,
                 verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text((state as HomeUiState.Error).errorMessage)
             }
@@ -37,7 +38,7 @@ fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = koi
             Column(
                 modifier = Modifier,
                 verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text("${(state as HomeUiState.Success).forecast}")
             }
