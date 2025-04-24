@@ -45,6 +45,20 @@ kotlin {
             implementation(libs.bundles.ktor)
 
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            implementation(libs.coroutines.core)
+
+            implementation(libs.napier)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.ktor.client.android)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }
