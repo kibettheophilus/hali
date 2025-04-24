@@ -1,8 +1,10 @@
 package com.theokibet.hali.data.repositories
 
+import com.theokibet.hali.data.network.api.WeatherApi
+
 interface WeatherRepository {
 }
 
-class WeatherApiImpl: WeatherRepository{
+class WeatherRepositoryImpl(private val weatherApi: WeatherApi): WeatherRepository{
 
 }
