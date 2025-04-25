@@ -13,7 +13,7 @@ import org.koin.dsl.module
 
 val sharedModule =
     module {
-        single { createHttpClient(engine = get()) }
+        single { createHttpClient(engine = get(), enableLogs = true) }
         single<WeatherRepository> { WeatherRepositoryImpl(weatherApi = get()) }
         single<WeatherApi> { WeatherApiImpl(httpClient = get()) }
         viewModelOf(::HomeViewModel)
