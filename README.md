@@ -64,9 +64,15 @@ Given enough time, I would have loved to:
 - Improve test coverage.
 
 ## Issues Faced
+
 1. iOS compilation fails with `IllegalStateException`
-  - Fixed by adding `kotlin.native.cacheKind=none` to `gradle.properties`
-  - Read more [here](https://github.com/JetBrains/compose-multiplatform/issues/4809)
-2. `Constructor 'CupertinoScrollDecayAnimationSpec.<init>' can not be called: No constructor found for symbol 'androidx.compose.animation.core.cupertino/CupertinoScrollDecayAnimationSpec.<init>|<init>(kotlin.Float){}[0]'
-`   - Fixed by downgrading compose-navigation version to `2.8.0-alpha12`
-   - Read more [here](https://slack-chats.kotlinlang.org/t/27118674/hey-everyone-i-am-getting-a-linkage-error-from-the-ios-build)
+
+- Fixed by adding `kotlin.native.cacheKind=none` to `gradle.properties`
+- Read more [here](https://github.com/JetBrains/compose-multiplatform/issues/4809)
+
+2. ```
+    Constructor 'CupertinoScrollDecayAnimationSpec.<init>' can not be called: No constructor found for symbol 'androidx.compose.animation.core.cupertino/CupertinoScrollDecayAnimationSpec.<init>|<init>(kotlin.Float){}[0]'
+   ```
+    - Fixed by downgrading compose-navigation version to `2.8.0-alpha12`
+    - Read
+      more [here](https://slack-chats.kotlinlang.org/t/27118674/hey-everyone-i-am-getting-a-linkage-error-from-the-ios-build)
