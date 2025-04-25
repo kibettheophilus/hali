@@ -10,7 +10,7 @@ import io.ktor.client.request.parameter
 interface WeatherApi {
     suspend fun getDailyForecast(): DailyResponse
 
-    suspend fun getHourlyForecast(): HourlyResponse
+    suspend fun getHourlyForecast(date: String): HourlyResponse
 }
 
 class WeatherApiImpl(private val httpClient: HttpClient) : WeatherApi {
@@ -24,20 +24,20 @@ class WeatherApiImpl(private val httpClient: HttpClient) : WeatherApi {
                     "weathercode,temperature_2m_max,temperature_2m_min",
                 )
                 parameter("timezone", "Asia/Tokyo")
-                parameter("forecast_days", 8)
+                parameter("forecast_days", 16)
             }
         }.body()
     }
 
-    override suspend fun getHourlyForecast(): HourlyResponse {
+    override suspend fun getHourlyForecast(date: String): HourlyResponse {
         return httpClient.get("v1/forecast") {
             url {
                 parameter("latitude", 35.68)
                 parameter("longitude", 139.76)
                 encodedParameters.append("hourly", "temperature_2m,precipitation")
                 parameter("timezone", "Asia/Tokyo")
-                parameter("start_date", "2025-04-24")
-                parameter("end_date", "2025-04-24")
+                parameter("start_date", date)
+                parameter("end_date", date)
             }
         }.body()
     }
