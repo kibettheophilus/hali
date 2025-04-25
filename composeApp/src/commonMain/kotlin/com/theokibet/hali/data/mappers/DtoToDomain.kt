@@ -22,6 +22,7 @@ fun Hourly.mapHourlyForecast(): List<HourlyForecast> {
             precipitation = this.precipitation[index],
             temperatureM = this.temperatureM[index],
             time = this.time[index],
+            weatherCode = this.weatherCode[index],
         )
     }
 }

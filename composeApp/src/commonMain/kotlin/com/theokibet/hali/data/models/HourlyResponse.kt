@@ -34,4 +34,6 @@ data class Hourly(
     @SerialName("temperature_2m")
     val temperatureM: List<Double>,
     val time: List<String>,
+    @SerialName("weathercode")
+    val weatherCode: List<Int>,
 )
