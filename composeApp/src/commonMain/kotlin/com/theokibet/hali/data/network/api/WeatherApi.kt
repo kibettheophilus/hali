@@ -34,7 +34,7 @@ class WeatherApiImpl(private val httpClient: HttpClient) : WeatherApi {
             url {
                 parameter("latitude", 35.68)
                 parameter("longitude", 139.76)
-                encodedParameters.append("hourly", "temperature_2m,precipitation")
+                encodedParameters.append("hourly", "temperature_2m,precipitation,weathercode")
                 parameter("timezone", "Asia/Tokyo")
                 parameter("start_date", date)
                 parameter("end_date", date)
