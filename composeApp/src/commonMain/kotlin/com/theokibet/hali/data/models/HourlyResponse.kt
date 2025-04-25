@@ -26,7 +26,7 @@ data class HourlyUnits(
     @SerialName("temperature_2m")
     val temperatureM: String,
     val time: String,
-    val weathercode: String
+    val weathercode: String,
 )
 
 @Serializable

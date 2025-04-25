@@ -17,34 +17,36 @@ import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-fun createHttpClient(engine: HttpClientEngine, enableLogs: Boolean) =
-    HttpClient(engine) {
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    isLenient = true
-                    ignoreUnknownKeys = true
-                },
-            )
-        }
-
-        install(Logging) {
-            level = LogLevel.HEADERS
-            logger =
-                object : Logger {
-                    override fun log(message: String) {
-                        if (enableLogs) Napier.i(tag = "Http Client", message = message)
-                    }
-                }
-        }.also {
-            Napier.base(DebugAntilog())
-        }
-
-        install(DefaultRequest) {
-            url {
-                host = BASE_URL
-                protocol = URLProtocol.HTTPS
-            }
-            header(HttpHeaders.ContentType, ContentType.Application.Json)
-        }
+fun createHttpClient(
+    engine: HttpClientEngine,
+    enableLogs: Boolean,
+) = HttpClient(engine) {
+    install(ContentNegotiation) {
+        json(
+            Json {
+                isLenient = true
+                ignoreUnknownKeys = true
+            },
+        )
     }
+
+    install(Logging) {
+        level = LogLevel.HEADERS
+        logger =
+            object : Logger {
+                override fun log(message: String) {
+                    if (enableLogs) Napier.i(tag = "Http Client", message = message)
+                }
+            }
+    }.also {
+        Napier.base(DebugAntilog())
+    }
+
+    install(DefaultRequest) {
+        url {
+            host = BASE_URL
+            protocol = URLProtocol.HTTPS
+        }
+        header(HttpHeaders.ContentType, ContentType.Application.Json)
+    }
+}

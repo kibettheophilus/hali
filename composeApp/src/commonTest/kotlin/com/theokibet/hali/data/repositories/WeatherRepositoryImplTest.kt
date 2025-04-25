@@ -2,7 +2,6 @@ package com.theokibet.hali.data.repositories
 
 import com.theokibet.hali.data.utils.dailyForecast
 import com.theokibet.hali.data.utils.hourlyForecast
-import com.theokibet.hali.domain.repositories.WeatherRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import kotlin.test.BeforeTest
@@ -37,7 +36,6 @@ class WeatherRepositoryImplTest {
             assertTrue(response.first().isFailure)
             assertNotNull(response)
         }
-
 
     @Test
     fun `given weatherrepository - when getHourlyForecast is success - returns a list of hourlyforecast`() =
