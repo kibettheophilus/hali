@@ -2,8 +2,8 @@ package com.theokibet.hali.data.network.api
 
 import com.theokibet.hali.data.models.HourlyResponse
 import com.theokibet.hali.data.network.client.createHttpClient
-import com.theokibet.hali.data.network.dailyResponse
-import com.theokibet.hali.data.network.hourlyResponse
+import com.theokibet.hali.data.utils.dailyResponse
+import com.theokibet.hali.data.utils.hourlyResponse
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders

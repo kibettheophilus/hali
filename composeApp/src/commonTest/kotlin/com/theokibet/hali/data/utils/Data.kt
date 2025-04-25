@@ -1,4 +1,7 @@
-package com.theokibet.hali.data.network
+package com.theokibet.hali.data.utils
+
+import com.theokibet.hali.domain.models.DailyForecast
+import com.theokibet.hali.domain.models.HourlyForecast
 
 val dailyResponse = """
         {
@@ -190,3 +193,21 @@ val hourlyResponse = """
         }
     }
 """.trimIndent()
+
+val dailyForecast = listOf(
+    DailyForecast(
+        date = "2025-05-14",
+        weatherCode = 3,
+        maxTemp = 34.0,
+        minTemp = 12.0
+    )
+)
+
+val hourlyForecast = listOf(
+    HourlyForecast(
+        weatherCode = 3,
+        precipitation = 0.0,
+        temperatureM = 28.0,
+        time = "2025-04-24T00:00"
+    )
+)
