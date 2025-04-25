@@ -17,7 +17,7 @@ import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-fun createHttpClient(engine: HttpClientEngine) =
+fun createHttpClient(engine: HttpClientEngine, enableLogs: Boolean) =
     HttpClient(engine) {
         install(ContentNegotiation) {
             json(
@@ -33,7 +33,7 @@ fun createHttpClient(engine: HttpClientEngine) =
             logger =
                 object : Logger {
                     override fun log(message: String) {
-                        Napier.i(tag = "Http Client", message = message)
+                        if (enableLogs) Napier.i(tag = "Http Client", message = message)
                     }
                 }
         }.also {
