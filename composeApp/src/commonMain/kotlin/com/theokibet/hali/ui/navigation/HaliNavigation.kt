@@ -16,17 +16,22 @@ fun HaliNavigation(modifier: Modifier = Modifier) {
     NavHost(
         modifier = Modifier,
         navController = navController,
-        startDestination = Home
+        startDestination = Home,
     ) {
         composable<Home> {
-            HomeScreen(onClick = { date ->
+            HomeScreen(onCardClicked = { date ->
                 navController.navigate(Details(date = date))
             })
         }
 
         composable<Details> { navBackStackEntry ->
             val details: Details = navBackStackEntry.toRoute()
-            DetailScreen(date = details.date)
+            DetailScreen(
+                date = details.date,
+                onNavigateBack = {
+                    navController.navigateUp()
+                },
+            )
         }
     }
 }
