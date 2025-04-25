@@ -52,6 +52,15 @@ kotlin {
             implementation(libs.coroutines.core)
 
             implementation(libs.napier)
+
+            implementation(libs.coil.compose)
+
+            implementation(libs.date.time)
+        }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.coroutines.test)
         }
 
         androidMain.dependencies {
