@@ -22,9 +22,9 @@ The app has been built using a modularized layered architecture. The app has the
 
 #### android
 
-|                         Home                         |                         Details                         |
-|:----------------------------------------------------:|:-------------------------------------------------------:|
-| <img src="screenshots/android_home.png" width="200"> | <img src="screenshots/android_details.png" width="200"> |
+|                         Home                         |                        Details                         |
+|:----------------------------------------------------:|:------------------------------------------------------:|
+| <img src="screenshots/android_home.png" width="200"> | <img src="screenshots/android_detail.png" width="200"> |
 
 #### ios
 
