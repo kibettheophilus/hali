@@ -61,3 +61,4 @@ Given enough time, I would have loved to:
   based on their current location.
 - Allow user to search - linked to above, let users search and view forecast for other places other
   than their current location
+- Improve test coverage.
