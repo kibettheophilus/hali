@@ -1,13 +1,9 @@
 package com.theokibet.hali.ui.screens.home
 
-import com.theokibet.hali.data.models.DailyResponse
+import com.theokibet.hali.domain.models.DailyForecast
 
 sealed interface HomeUiState {
-    data object Default : HomeUiState
-
     data object Loading : HomeUiState
-
-    data class Success(val forecast: DailyResponse) : HomeUiState
-
+    data class Success(val dailyForecast: List<DailyForecast>) : HomeUiState
     data class Error(val errorMessage: String) : HomeUiState
 }
