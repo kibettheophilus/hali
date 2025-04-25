@@ -10,16 +10,20 @@ import kotlinx.coroutines.flow.flowOf
 
 class FakeWeatherRepository : WeatherRepository {
     var shouldThroError = false
+
     override suspend fun getDailyForecast(): Flow<Result<List<DailyForecast>>> {
         return if (shouldThroError) {
             flowOf(Result.failure(exception = Exception("Unknown error occurred")))
-        } else flowOf(Result.success(dailyForecast))
+        } else {
+            flowOf(Result.success(dailyForecast))
+        }
     }
 
     override suspend fun getHourlyForecast(date: String): Flow<Result<List<HourlyForecast>>> {
         return if (shouldThroError) {
             flowOf(Result.failure(exception = Exception("Unknown error occurred")))
-        } else flowOf(Result.success(hourlyForecast))
+        } else {
+            flowOf(Result.success(hourlyForecast))
+        }
     }
 }
-

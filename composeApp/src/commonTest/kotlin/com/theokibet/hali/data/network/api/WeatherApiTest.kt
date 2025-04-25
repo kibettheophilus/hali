@@ -25,25 +25,27 @@ class WeatherApiTest {
         }
 
     @Test
-    fun `given weattherapi-when getHourlyForecast is success-returns valid body of hourly response`() = runTest {
-        val apiCall = generateFakeApi(statusCode = HttpStatusCode.OK, response = hourlyResponse)
-        val response = apiCall.getHourlyForecast(date = "2025-04-24")
+    fun `given weattherapi-when getHourlyForecast is success-returns valid body of hourly response`() =
+        runTest {
+            val apiCall = generateFakeApi(statusCode = HttpStatusCode.OK, response = hourlyResponse)
+            val response = apiCall.getHourlyForecast(date = "2025-04-24")
 
-        assertEquals(Json.decodeFromString<HourlyResponse>(hourlyResponse), response)
-    }
+            assertEquals(Json.decodeFromString<HourlyResponse>(hourlyResponse), response)
+        }
 
     private fun generateFakeApi(
         statusCode: HttpStatusCode,
         response: String,
     ) = WeatherApiImpl(
         httpClient =
-        createHttpClient(
-            engine = generateFakeEngine(
-                statusCode = statusCode,
-                response = response,
+            createHttpClient(
+                engine =
+                    generateFakeEngine(
+                        statusCode = statusCode,
+                        response = response,
+                    ),
+                enableLogs = false,
             ),
-            enableLogs = false
-        ),
     )
 
     private fun generateFakeEngine(

@@ -3,74 +3,77 @@ package com.theokibet.hali.data.utils
 import com.theokibet.hali.domain.models.DailyForecast
 import com.theokibet.hali.domain.models.HourlyForecast
 
-val dailyResponse = """
-        {
-            "latitude": 35.7,
-            "longitude": 139.75,
-            "generationtime_ms": 0.11932849884033203,
-            "utc_offset_seconds": 32400,
-            "timezone": "Asia/Tokyo",
-            "timezone_abbreviation": "GMT+9",
-            "elevation": 12.0,
-            "daily_units": {
-                "time": "iso8601",
-                "weathercode": "wmo code",
-                "temperature_2m_max": "°C",
-                "temperature_2m_min": "°C"
-            },
-            "daily": {
-                "time": [
-                    "2025-04-24",
-                    "2025-04-25",
-                    "2025-04-26",
-                    "2025-04-27",
-                    "2025-04-28",
-                    "2025-04-29",
-                    "2025-04-30",
-                    "2025-05-01"
-                ],
-                "weathercode": [
-                    3,
-                    3,
-                    51,
-                    3,
-                    3,
-                    2,
-                    0,
-                    1
-                ],
-                "temperature_2m_max": [
-                    22.4,
-                    22.2,
-                    20.3,
-                    19.2,
-                    19.7,
-                    18.3,
-                    20.0,
-                    20.7
-                ],
-                "temperature_2m_min": [
-                    14.8,
-                    15.6,
-                    12.1,
-                    9.4,
-                    16.0,
-                    11.8,
-                    11.1,
-                    15.0
-                ]
-            }
+val dailyResponse =
+    """
+    {
+        "latitude": 35.7,
+        "longitude": 139.75,
+        "generationtime_ms": 0.11932849884033203,
+        "utc_offset_seconds": 32400,
+        "timezone": "Asia/Tokyo",
+        "timezone_abbreviation": "GMT+9",
+        "elevation": 12.0,
+        "daily_units": {
+            "time": "iso8601",
+            "weathercode": "wmo code",
+            "temperature_2m_max": "°C",
+            "temperature_2m_min": "°C"
+        },
+        "daily": {
+            "time": [
+                "2025-04-24",
+                "2025-04-25",
+                "2025-04-26",
+                "2025-04-27",
+                "2025-04-28",
+                "2025-04-29",
+                "2025-04-30",
+                "2025-05-01"
+            ],
+            "weathercode": [
+                3,
+                3,
+                51,
+                3,
+                3,
+                2,
+                0,
+                1
+            ],
+            "temperature_2m_max": [
+                22.4,
+                22.2,
+                20.3,
+                19.2,
+                19.7,
+                18.3,
+                20.0,
+                20.7
+            ],
+            "temperature_2m_min": [
+                14.8,
+                15.6,
+                12.1,
+                9.4,
+                16.0,
+                11.8,
+                11.1,
+                15.0
+            ]
         }
+    }
     """.trimIndent()
 
-val errorResponse = """
+val errorResponse =
+    """
     {
         "error": true,
         "reason": "Invalid timezone"
     }
-""".trimIndent()
+    """.trimIndent()
 
-val hourlyResponse = """
+val hourlyResponse =
+    """
     {
         "latitude": 35.7,
         "longitude": 139.75,
@@ -192,22 +195,24 @@ val hourlyResponse = """
             ]
         }
     }
-""".trimIndent()
+    """.trimIndent()
 
-val dailyForecast = listOf(
-    DailyForecast(
-        date = "2025-05-14",
-        weatherCode = 3,
-        maxTemp = 34.0,
-        minTemp = 12.0
+val dailyForecast =
+    listOf(
+        DailyForecast(
+            date = "2025-05-14",
+            weatherCode = 3,
+            maxTemp = 34.0,
+            minTemp = 12.0,
+        ),
     )
-)
 
-val hourlyForecast = listOf(
-    HourlyForecast(
-        weatherCode = 3,
-        precipitation = 0.0,
-        temperatureM = 28.0,
-        time = "2025-04-24T00:00"
+val hourlyForecast =
+    listOf(
+        HourlyForecast(
+            weatherCode = 3,
+            precipitation = 0.0,
+            temperatureM = 28.0,
+            time = "2025-04-24T00:00",
+        ),
     )
-)
