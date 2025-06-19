@@ -11,8 +11,7 @@ import com.theokibet.hali.ui.screens.details.DetailScreen
 import com.theokibet.hali.ui.screens.home.HomeScreen
 
 @Composable
-fun HaliNavigation(modifier: Modifier = Modifier) {
-    val navController: NavHostController = rememberNavController()
+fun HaliNavigation(navController: NavHostController) {
     NavHost(
         modifier = Modifier,
         navController = navController,
